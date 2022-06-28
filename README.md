@@ -68,7 +68,7 @@ How to use
 #### - Detecting Image with Yolov3 and Multi-Objects Tracking with ByteTrack
 - Params: refer to config files and parse_args()
 ```
-python main.py --mode yolov3-detection-img
+python main.py --mode byte-multi-objects-tracking-images
 ```
 
 #### - Build Yolov3 def cfg
@@ -99,6 +99,7 @@ Dataset
 #### Multi-Objects Tracking Test Dataset
 
 - GOT-10k: http://got-10k.aitestunion.com/
+- DanceTrack: https://sites.google.com/view/dancetrackmot
 
 #### Detection Train & Test Dataset
 
