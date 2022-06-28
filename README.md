@@ -3,15 +3,34 @@ Description
 =============
 
 #### - ByteTrack
-- 
+
+- ByteTrack
+  - Effective and generic association method, tracking by associating almost every detection box instead of only the high score ones
+- BYTE
+  - First Association
+    - Matcing high score detection bounding boxes based on motion similarity and appearance similarity
+    - Next, Kalman filter is applied to predict the position of the tracklets of the next frame
+    - This process is similar to traditional trackers
+  - Second Association
+    - The difference of BYTE is considering the low score detection bounding boxes once more
+    - Based on the same motion similarity, we match unmatched tracklets and low score boxes such as the occlusion boxes
+- More details
+  - https://blog.naver.com/qbxlvnf11/222784457900
+  - [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864.pdf)
+- Pseudo-code of BYTE
+
+<img src="" width="35%"></img>
 
 #### - Yolov3
-- You only look once (YOLO) is one of the the powerful and real-time 1-stage object detection systems.
+- You only look once (YOLO) is one of the the powerful and real-time 1-stage object detection systems
 - Improved features compared to yolov2: FPN,shortcut connection, logistic regression etc.
 - More details: [YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767.pdf)
   
 Contents
 =============
+
+#### - ByteTrack
+- Identifying objects detected by yolov3
 
 #### - Yolov3 Train/inference
 - Train yolov3 model
@@ -22,6 +41,7 @@ Contents
 - Real-time inference with yolov3 TensorRT engine
 
 #### - Config files
+- byte_tracker_config.ini: byte tracker parameters
 - yolov3_config.ini: yolov3 model parameters
 - train_config.ini: yolov3 train parameters
 - tensorrt_config.ini: yolov3 tensorrt parameters
@@ -34,16 +54,22 @@ Yolov3 Run Environments with TensorRT 7.2.2 & Pytorch
 
 #### - Docker pull
 ```
-docker pull qbxlvnf11docker/tensorrt_20.12_yolov3:latest
+docker pull qbxlvnf11docker/byte_tracker_yolov3:latest
 ```
 
 #### - Docker run
 ```
-nvidia-docker run -it --name yolov3_tensorrt -v {yolo-v3-tensorrt-repository-path}:/workspace/Yolov3 -w /workspace/Yolov3 qbxlvnf11docker/tensorrt_20.12_yolov3:latest bash
+nvidia-docker run -it --name byte_tracker_yolov3 -v {yolo-v3-tensorrt-repository-path}:/workspace/Byte-Tracker-Yolov3 -w /workspace/Byte-Tracker-Yolov3 qbxlvnf11docker/byte_tracker_yolov3:latest bash
 ```
 
 How to use
 =============
+
+#### - Detecting Image with Yolov3 and Multi-Objects Tracking with ByteTrack
+- Params: refer to config files and parse_args()
+```
+python main.py --mode yolov3-detection-img
+```
 
 #### - Build Yolov3 def cfg
 ```
@@ -55,33 +81,33 @@ How to use
 ./download_weights.sh
 ```
 
-#### - Detect image with Yolov3
-- Params: refer to config files and parse_args()
-```
-python main.py --mode yolov3-detection-img
-```
-
 #### - Train Yolov3 Model
 - Params: refer to config files and parse_args()
 ```
 python train.py --mode yolov3-train
 ```
 
-#### - Build TensorRT engine
+#### - Build TensorRT Engine
 - Params: refer to config files and parse_args()
 ```
 python yolov3_convert_onnx_tensorrt.py --yolov3_config_file_path ./config/yolov3_config.ini --tensorrt_config_file_path ./config/tensorrt_config.ini
 ```
 
-Build Dataset
+Dataset
 =============
 
-#### - Download COCO2014 dataset
+#### Multi-Objects Tracking Test Dataset
+
+- GOT-10k: http://got-10k.aitestunion.com/
+
+#### Detection Train & Test Dataset
+
+- Download COCO2014 dataset
 ```
 ./get_coco_dataset.sh
 ```
 
-#### - Build Data json files
+#### - Build Data Json Files for Train Yolov3
 - Building data json for optimizing yolov3
 - In train process, read builded data json file and get train data
 - Params: refer to parse_args()
@@ -89,7 +115,7 @@ Build Dataset
 python yolov3_convert_onnx_tensorrt.py --target coco2014 --data_folder_path ./data/train_data/coco --save_folder_path ./data/data_json/coco
 ```
 
-#### - Format of data json files
+#### - Format of Data Json Files
 - parsing_data_dic['class_format'] = type of class ('name' or 'id')
 - parsing_data_dic['label_scale'] = scale of label ('absolute' or 'relative')
 - parsing_data_dic['image_list'] = [{'id'-image id, 'image_file_path'-image file path}, ...]
@@ -106,7 +132,7 @@ References
   title={ByteTrack: Multi-Object Tracking by Associating Every Detection Box},
   author={Yifu Zhang et al.},
   journal = {arXiv},
-  year={2018}
+  year={2021}
 }
 ```
 
