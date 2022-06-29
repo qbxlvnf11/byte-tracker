@@ -34,9 +34,9 @@ Contents
 <img src="https://user-images.githubusercontent.com/52263269/176373476-48b25ea8-9ac1-418b-981d-0ddf289a859a.png" width="30%"></img>
 <img src="https://user-images.githubusercontent.com/52263269/176373480-48ca46de-5ca5-46b6-b4bf-42bb3c1fee6c.png" width="30%"></img>
 <img src="https://user-images.githubusercontent.com/52263269/176373481-5df3e42d-68d8-4485-b966-6fae1621e1a1.png" width="30%"></img>
-<img src="https://user-images.githubusercontent.com/52263269/176373460-f7c62d95-0c68-4676-be35-50fa2efcd634.png" width="35%"></img>
-<img src="https://user-images.githubusercontent.com/52263269/176373465-ed50744f-34ba-4ee0-aaa8-22880ea9d413.png" width="35%"></img>
-<img src="https://user-images.githubusercontent.com/52263269/176373470-b9b7eae8-aacf-4a78-b47d-ef0787ab2f15.png" width="35%"></img>
+<img src="https://user-images.githubusercontent.com/52263269/176373460-f7c62d95-0c68-4676-be35-50fa2efcd634.png" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/52263269/176373465-ed50744f-34ba-4ee0-aaa8-22880ea9d413.png" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/52263269/176373470-b9b7eae8-aacf-4a78-b47d-ef0787ab2f15.png" width="30%"></img>
 
 #### - ByteTrack
 - Identifying objects detected by yolov3
