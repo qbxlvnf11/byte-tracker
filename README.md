@@ -14,6 +14,7 @@ Description
   - Second Association
     - The difference of BYTE is considering the low score detection bounding boxes once more
     - Based on the same motion similarity, we match unmatched tracklets and low score boxes such as the occlusion boxes
+- Similarity metric: IoU-based (re-id is not )
 - More details
   - https://blog.naver.com/qbxlvnf11/222784457900
   - [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864.pdf)
@@ -28,6 +29,13 @@ Description
   
 Contents
 =============
+
+<img src="" width="30%"></img>
+<img src="" width="30%"></img>
+<img src="" width="30%"></img>
+<img src="" width="35%"></img>
+<img src="" width="35%"></img>
+<img src="" width="35%"></img>
 
 #### - ByteTrack
 - Identifying objects detected by yolov3
