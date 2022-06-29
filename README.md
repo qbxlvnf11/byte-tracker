@@ -21,7 +21,7 @@ Description
   - [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864.pdf)
 - Pseudo-code of BYTE
 
-<img src="https://user-images.githubusercontent.com/52263269/176381481-a93ddfb8-0666-45fb-a9ea-04589d848ecc.png" width="35%"></img>
+<img src="https://user-images.githubusercontent.com/52263269/176381481-a93ddfb8-0666-45fb-a9ea-04589d848ecc.png" width="50%"></img>
 
 #### - Yolov3
 - You only look once (YOLO) is one of the the powerful and real-time 1-stage object detection systems
